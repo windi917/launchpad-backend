@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient()
 
 // createToken function 
-exports.createToken = async ({name, symbol, totalSupply, decimals, owner, proposalTitle, proposalDesc, proposalStatus, votePowerLimit, periodId, logoURL, tokenomicsURL, mint}) => {
+exports.createToken = async ({name, symbol, totalSupply, decimals, owner, proposalTitle, proposalDesc, proposalStatus, votePowerLimit, periodId, logoURL, tokenomicsURL, mint, twitter, website}) => {
 
     const newToken = await prisma.token.create({
       data : {
@@ -17,7 +17,9 @@ exports.createToken = async ({name, symbol, totalSupply, decimals, owner, propos
         periodId: Number(periodId),
         logoURL,
         tokenomicsURL,
-        mint: mint
+        mint: mint,
+        twitter,
+        website
       }
     }).catch((e) => {
       console.error(e)

@@ -34,7 +34,9 @@ model Token {
   periodId    Int   @default(0)
   votePeriod  VotingPeriod      @relation(fields: [periodId], references: [id])
   logoURL           String
-  tokenomicsURL     String  
+  tokenomicsURL     String
+  twitter           String
+  website           String  
 }
 model VoteTokenPair {
   id          Int       @id @default(autoincrement())
